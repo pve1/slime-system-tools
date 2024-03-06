@@ -34,6 +34,10 @@
                  (pathname-name namestring)))) 
 
 (defun Source-file-system-name (source-file)
+  "Determine which ASDF system name corresponds to SOURCE-FILE,
+  assuming SOURCE-FILE can be loaded with something like
+  \"my-app/dir/subdir/file\"."
   (let ((asd (probe-asd-file source-file)))
     (when asd
       (determine-system-name source-file asd))))
+
